@@ -1,3 +1,5 @@
 class Job < ApplicationRecord
-  belongs_to :user
+  has_many :job_users
+  has_many :users, through: :job_users
+  belongs_to :organization
 end

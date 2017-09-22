@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-
+	has_many :job_users
+	has_many :jobs, through: :job_users
   has_secure_password
-  has_many :jobs_applied, foreign_key: "job_id", class_name: "Job"
+  
 end
