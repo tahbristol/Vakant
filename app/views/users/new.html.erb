@@ -1,12 +1,22 @@
-<%= form_for @user do |f| %>
 
-<%= f.label :email %>
+<%= form_for @user do |f| %>
+<% if @user.errors.any? %>
+  <div class="error_message">
+    <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <%end%>
+    </ul>
+
+  </div>
+  <%end%>
+<%= f.label :email %><br>
 <%= f.text_field :email %><br>
 
-<%= f.label :password %>
+<%= f.label :password %><br>
 <%= f.text_field :password %><br>
 
-<%= f.label :password_confirmation %>
+<%= f.label :password_confirmation %><br>
 <%= f.text_field :password_confirmation %><br>
 
 <%= f.submit %>
