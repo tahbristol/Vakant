@@ -36,8 +36,8 @@
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-	
-=end
+
+
 
 User.create(email:"Tyler@bristol.com", password:"password1")
 User.create(email:"Ali@isa.com", password:"password2")
@@ -51,4 +51,4 @@ o2 = Organization.create(name:"Microsoft", location:"WA")
 j1 = Job.create(title:"Software Developer", location:"CA", organization: o1)
 j2 = Job.create(title:"Market Research Analysist", location:"CA", organization: o2)
 
-
+=end
