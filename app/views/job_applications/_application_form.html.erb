@@ -1,0 +1,28 @@
+<%= form_for @job_application do |f| %>
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %><br>
+
+  <%= f.label :middle_name %>
+  <%= f.text_field :middle_name %><br>
+
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %><br>
+
+  <%= f.label :address %>
+  <%= f.text_field :address %><br>
+
+  <%= f.label :city %>
+  <%= f.text_field :city %><br>
+
+  <%= f.label :state %>
+  <%= f.text_field :state %><br>
+
+  <%= f.label :zip_code %>
+  <%= f.text_field :zip_code %><br>
+
+  <%= f.label :phone %>
+  <%= f.text_field :phone %><br>
+
+  <%= f.submit %>
+
+  <%end%>

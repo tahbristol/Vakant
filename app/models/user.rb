@@ -5,4 +5,5 @@ class User < ApplicationRecord
   :recoverable, :rememberable, :trackable, :validatable
   has_many :job_users
   has_many :jobs, through: :job_users
+  has_one :job_application
 end
