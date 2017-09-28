@@ -6,4 +6,17 @@ class User < ApplicationRecord
   has_many :job_users
   has_many :jobs, through: :job_users
   has_one :job_application
+
+
+  def full_name
+    job_app = self.job_application
+    "#{job_app.first_name} #{job_app.last_name}"
+  end
+
+  def full_address
+    job_app = self.job_application
+    #binding.pry
+
+    "#{job_app.address} #{job_app.city}, #{job_app.state} #{job_app.phone}"
+  end
 end
