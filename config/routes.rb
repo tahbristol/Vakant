@@ -10,9 +10,11 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   devise_scope :user do
-    get 'sign_up', to: 'devise/registrations#new'
+    get 'sign_up_seeker', to: 'devise/registrations#new'
   end
 
-
+  devise_scope :organization do
+    get 'sign_up_org', to: 'devise/registrations#new'
+  end
 
   end
