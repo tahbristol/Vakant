@@ -1,44 +1,23 @@
 class UsersController < ApplicationController
 
-
   def index
 
+    @users = User.all
   end
 
+
   def new
-    @user = User.new
+
   end
 
   def create
-    @user = User.create(user_params)
+    binding.pry
     if @user.save
-    @user = User.create(user_params)
-    redirect_to user_path(@user)
-    else
-
-      render :new
+      redirect_to @user
     end
   end
 
   def show
     @user = User.find(params[:id])
   end
-
-  def edit
-
-  end
-
-  def update
-
-  end
-
-  def destory
-
-  end
-
-  private
-    def user_params
-      params.require(:user).permit(:email, :password)
-    end
-
 end

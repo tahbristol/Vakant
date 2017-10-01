@@ -1,2 +1,7 @@
-<h1>User Show Page</h1>
-<%=@user.email %>
+<h1>Users Profile</h1>
+  <p>Email: <%= @user.email %>
+  <% if @user.job_application.present? %>
+  <%= @user.full_name %>
+  <p>--------------------------------</p>
+  <%= @user.full_address %>
+<%end%>
