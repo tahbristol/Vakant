@@ -1,10 +1,13 @@
+<nav class="nav nav-masthead">
+  <%= link_to "Home-U", root_path, class: "nav-link" %>
+  <%= link_to "Sign up-U", new_user_registration_path, class: "nav-link"  %>
+  <%= link_to "Sign in-U", new_user_session_path, class: "nav-link" %>
+  <%= link_to "Sign out-U", destroy_user_session_path, class: "nav-link", :method => :delete %>
+  &nbsp;&nbsp;  |
+  <%= link_to "Home-O", root_path, class: "nav-link" %>
+  <%= link_to "Sign up-O", new_organization_registration_path, class: "nav-link" %>
+  <%= link_to "Sign in-O", new_organization_session_path, class: "nav-link" %>
+  <%= link_to "Sign out-O", destroy_organization_session_path, class: "nav-link",  :method => :delete %>
 
-<%= link_to "Home", root_path %>
-<%= link_to "Sign up", new_user_registration_path %>
-<%= link_to "Sign in", new_user_session_path %>
-<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
 
-<%= link_to "Home", root_path %>
-<%= link_to "Sign up", new_organization_registration_path %>
-<%= link_to "Sign in", new_organization_session_path %>
-<%= link_to "Sign out", destroy_organization_session_path, :method => :delete %>
+</nav>
