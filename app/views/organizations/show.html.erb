@@ -1,0 +1,8 @@
+<div style="margin-top: 100px;">
+<h1>Organization Profile</h1>
+  <p>Organization Name: <%= @org.name %></p>
+  <p>Location: <%= @org.location %></p>
+  <p>Email: <%= @org.email%></p>
+
+<%= button_to "Create new Job", new_job_path, method: :get %>
+</div>

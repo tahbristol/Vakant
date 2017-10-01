@@ -1,7 +1,13 @@
 <h1>Users Profile</h1>
   <p>Email: <%= @user.email %>
+
+
+    <h2>User Job Application</h2>
   <% if @user.job_application.present? %>
   <%= @user.full_name %>
   <p>--------------------------------</p>
-  <%= @user.full_address %>
+  <%= @user.full_address %><br>
+  <%= link_to "Edit Application", edit_job_application_path%>
+  <%else%>
+    <%= link_to "Click to complete your application", new_job_application_path %>
 <%end%>

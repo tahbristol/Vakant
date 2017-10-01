@@ -5,8 +5,10 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :job_applications, only: [:new, :create, :show]
+  resources :job_applications, only: [:new, :create, :show, :edit, :update]
   resources :users, only: [:index, :show]
+  resources :organizations, only: [:index, :show]
+  resources :jobs 
   root 'welcome#index'
 
   devise_scope :user do

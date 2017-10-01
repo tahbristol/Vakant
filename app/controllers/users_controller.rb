@@ -11,13 +11,14 @@ class UsersController < ApplicationController
   end
 
   def create
-    binding.pry
+  #  binding.pry
     if @user.save
       redirect_to @user
     end
   end
 
   def show
+  #  binding.pry
     @user = User.find(params[:id])
   end
 end

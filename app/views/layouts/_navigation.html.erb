@@ -1,13 +1,27 @@
+<div class="masthead clearfix">
+  <div class="inner">
+    <h3 class="masthead-brand">Cover</h3>
 <nav class="nav nav-masthead">
+  <% if current_user && current_user.class.name === "User" %>
   <%= link_to "Home-U", root_path, class: "nav-link" %>
+  <%= link_to "Sign out-U", destroy_user_session_path, class: "nav-link", :method => :delete %>
+  <%elsif current_user && current_user.class.name === "Organization"%>
+  <%= link_to "Home-O", root_path, class: "nav-link" %>
+  <%= link_to "Sign out-O", destroy_organization_session_path, class: "nav-link",  :method => :delete %>
+  <%else%>
   <%= link_to "Sign up-U", new_user_registration_path, class: "nav-link"  %>
   <%= link_to "Sign in-U", new_user_session_path, class: "nav-link" %>
   <%= link_to "Sign out-U", destroy_user_session_path, class: "nav-link", :method => :delete %>
-  &nbsp;&nbsp;  |
-  <%= link_to "Home-O", root_path, class: "nav-link" %>
+
   <%= link_to "Sign up-O", new_organization_registration_path, class: "nav-link" %>
+
   <%= link_to "Sign in-O", new_organization_session_path, class: "nav-link" %>
   <%= link_to "Sign out-O", destroy_organization_session_path, class: "nav-link",  :method => :delete %>
 
 
+  <%end%>
+
 </nav>
+
+</div>
+</div>
