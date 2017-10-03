@@ -6,7 +6,6 @@ class JobsController < ApplicationController
   end
 
   def create
-    binding.pry
     @org = current_organization
     @job = @org.jobs.build(job_params)
     @job.save

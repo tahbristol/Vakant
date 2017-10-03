@@ -9,7 +9,7 @@ class OrganizationsController < ApplicationController
 
   def jobs
     @jobs = current_organization.jobs
-    binding.pry
+    
   end
 
 
