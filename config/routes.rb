@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   resources :job_applications, only: [:new, :create, :show, :edit, :update]
   resources :users, only: [:index, :show]
   resources :organizations, only: [:index, :show]
-  resources :jobs 
+  get 'organizations/:id/jobs', to: 'organizations#jobs'
+  resources :jobs
   root 'welcome#index'
 
   devise_scope :user do

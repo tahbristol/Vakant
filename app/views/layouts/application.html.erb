@@ -6,7 +6,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  
+
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="http://v4-alpha.getbootstrap.com/favicon.ico">
@@ -28,8 +28,9 @@
     <header>
   <%= render 'layouts/navigation' %>
     </header>
+    <div style="margin-top: 200px;">
     <%= yield %>
-
+  </div>
 
   </body>
 </html>

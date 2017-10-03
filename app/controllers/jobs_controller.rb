@@ -6,7 +6,16 @@ class JobsController < ApplicationController
   end
 
   def create
+    binding.pry
+    @org = current_organization
+    @job = @org.jobs.build(job_params)
+    @job.save
+    redirect_to job_path(@job)
+  end
 
+  def show
+    @job = Job.find(params[:id])
+    @org = @job.organization
   end
 
   private

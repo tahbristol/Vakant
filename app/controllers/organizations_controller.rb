@@ -7,5 +7,10 @@ class OrganizationsController < ApplicationController
     @org = Organization.find(params[:id])
   end
 
+  def jobs
+    @jobs = current_organization.jobs
+    binding.pry
+  end
+
 
 end
