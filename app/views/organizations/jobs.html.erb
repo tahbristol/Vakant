@@ -1,4 +1,10 @@
+<div class='col-md-12'>
+<h2><%= @org.name %>'s Open Jobs</h2>
+</div>
+<ul>
 <% @jobs.each do |job| %>
-   <%= link_to job.title, job_path(job) %><br>
-
+  <li>
+   <%= link_to job.title, job_path(job) %> </br>
+</li>
    <%end%>
+</ul>

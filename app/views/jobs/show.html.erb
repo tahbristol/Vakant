@@ -1,3 +1,20 @@
-<%= @job.title %><br>
+<div class="col-md-12">
+  <h2>Info for <%= @job.title %></h2>
 
-<%= link_to "Org", organization_path(@org) %>
+</div>
+<div class="col-md-12">
+  <ul>
+    <li><%= @job.title  %> </li>
+    <li><%= @job.location  %> </li>
+    <li><%=@job.description  %> </li>
+    <li><%= @job.level  %> </li>
+    <li><%= @job.salary %> </li>
+  </ul>
+
+</div>
+<div class="col-md-12">
+<%= link_to "Learn about the Org", organization_path(@org) %>
+</div>
+<div class="col-md-12">
+<%= link_to "Edit Position", edit_job_path %>
+</div>

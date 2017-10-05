@@ -4,39 +4,34 @@
     <title>Vakant</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="http://v4-alpha.getbootstrap.com/favicon.ico">
 
-    <title>Cover Template for Bootstrap</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="http://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="http://v4-alpha.getbootstrap.com/examples/cover/cover.css" rel="stylesheet">
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="http://v4-alpha.getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 
   </head>
 
   <body>
     <header>
-      <div class="container"style="margin-top: 200px;">
-       <div class="row">
+      <div class="container">
+        <div class="row">
       <%= render 'layouts/navigation' %>
     </div>
+    </div>
+
 
     </header>
-    <div class="container"style="margin-top: 200px;">
-     <div class="row">
-    <%= yield %>
-  </div>
+    <%= render partial: 'layouts/messages' %>
+    <div style="margin-top:150px;">
 </div>
+    <div class="container">
+      <div class="row">
+      <%= yield %>
+    </div>
+    </div>
 
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
   </body>
 </html>

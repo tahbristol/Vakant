@@ -1,28 +1,25 @@
-<div class="masthead clearfix">
 
-<h3 class="masthead-brand">Cover</h3>
 
-        <nav class="nav nav-masthead">
+        <nav class="nav nav-pills flex-column flex-sm-row">
+          <%= link_to "Home", root_path, class:"flex-sm-fill text-sm-center nav-link active " %>
           <% if current_user && current_user.class.name === "User" %>
-          <%= link_to "Home-U", root_path, class: "nav-link" %>
+          <%= link_to "Home-U", root_path, class:"flex-sm-fill text-sm-center nav-link " %>
           <%= link_to "Sign out-U", destroy_user_session_path, class: "nav-link", :method => :delete %>
           <%elsif current_user && current_user.class.name === "Organization"%>
-          <%= link_to "Home-O", root_path, class: "nav-link" %>
-          <%= link_to "Sign out-O", destroy_organization_session_path, class: "nav-link",  :method => :delete %>
+          <%= link_to "Home-O", root_path, class:"flex-sm-fill text-sm-center nav-link "%>
+          <%= link_to "Sign out-O", destroy_organization_session_path, class:"flex-sm-fill text-sm-center nav-link ",  :method => :delete %>
           <%else%>
-          <%= link_to "Sign up-U", new_user_registration_path, class: "nav-link"  %>
-          <%= link_to "Sign in-U", new_user_session_path, class: "nav-link" %>
-          <%= link_to "Sign out-U", destroy_user_session_path, class: "nav-link", :method => :delete %>
+          <%= link_to "Sign up-U", new_user_registration_path, class:"flex-sm-fill text-sm-center nav-link "  %>
+          <%= link_to "Sign in-U", new_user_session_path, class:"flex-sm-fill text-sm-center nav-link " %>
+          <%= link_to "Sign out-U", destroy_user_session_path, class:"flex-sm-fill text-sm-center nav-link ", :method => :delete %>
 
-          <%= link_to "Sign up-O", new_organization_registration_path, class: "nav-link" %>
+          <%= link_to "Sign up-O", new_organization_registration_path, class:"flex-sm-fill text-sm-center nav-link " %>
 
-          <%= link_to "Sign in-O", new_organization_session_path, class: "nav-link" %>
-          <%= link_to "Sign out-O", destroy_organization_session_path, class: "nav-link",  :method => :delete %>
+          <%= link_to "Sign in-O", new_organization_session_path, class:"flex-sm-fill text-sm-center nav-link " %>
+          <%= link_to "Sign out-O", destroy_organization_session_path, class:"flex-sm-fill text-sm-center nav-link ",  :method => :delete %>
 
 
           <%end%>
 
 
-
-        </div>
-  
+        </nav>

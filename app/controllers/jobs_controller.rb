@@ -17,6 +17,16 @@ class JobsController < ApplicationController
     @org = @job.organization
   end
 
+  def edit
+    @job = Job.find(params[:id])
+  end
+
+  def update
+    @job = Job.find(params[:id])
+    @job.update(job_params)
+    redirect_to job_path(@job)
+  end
+
   private
   def job_params
     params.require(:job).permit(:title, :location, :description, :level, :salary, :organization_id)
