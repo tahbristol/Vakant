@@ -13,10 +13,10 @@ class User < ApplicationRecord
     "#{job_app.first_name} #{job_app.last_name}"
   end
 
-  def full_address
+  def city_state
     job_app = self.job_application
     #binding.pry
 
-    "#{job_app.address} #{job_app.city}, #{job_app.state} #{job_app.phone}"
+    "#{job_app.city}, #{job_app.state} #{job_app.phone}"
   end
 end

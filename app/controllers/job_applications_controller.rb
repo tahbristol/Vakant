@@ -5,7 +5,7 @@ class JobApplicationsController < ApplicationController
   end
 
   def create
-   binding.pry
+
    @job_application = JobApplication.create(job_application_params)
    @user = current_user
    @user.job_application = @job_application
@@ -24,7 +24,7 @@ class JobApplicationsController < ApplicationController
   def update
     @user = current_user
     @job_application = JobApplication.update(job_application_params)
-binding.pry
+
     redirect_to user_path(@user)
   end
 

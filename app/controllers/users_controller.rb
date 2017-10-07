@@ -20,5 +20,6 @@ class UsersController < ApplicationController
   def show
   #  binding.pry
     @user = User.find(params[:id])
+    @job_app = @user.job_application
   end
 end
