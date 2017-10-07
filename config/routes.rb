@@ -9,7 +9,11 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show]
   resources :organizations, only: [:index, :show]
   get 'organizations/:id/jobs', to: 'organizations#jobs'
-  resources :jobs
+  resources :jobs do
+    resources :users
+  end
+
+
   root 'welcome#index'
 
   devise_scope :user do

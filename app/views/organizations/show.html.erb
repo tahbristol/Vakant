@@ -4,7 +4,12 @@
   <p>Location: <%= @org.location %></p>
   <p>Email: <%= @org.email%></p>
 
+<% if current_organization.present? %>
 <%= button_to "Create new Job", new_job_path, method: :get %>
 <%= link_to "Open Jobs", "/organizations/#{@org.id}/jobs" %> |
 <%= link_to "Edit Org", edit_organization_registration_path %>
+<%else%>
+<%= link_to "Back", :back %> | <%= link_to "My Profile", user_path(current_user) %>
+
+<%end%>
 </div>

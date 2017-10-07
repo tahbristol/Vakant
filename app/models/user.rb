@@ -9,8 +9,10 @@ class User < ApplicationRecord
 
 
   def full_name
-    job_app = self.job_application
-    "#{job_app.first_name} #{job_app.last_name}"
+    if self.job_application
+      job_app = self.job_application
+      "#{job_app.first_name} #{job_app.last_name}"
+    end
   end
 
   def city_state
