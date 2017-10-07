@@ -1,0 +1,11 @@
+<div class="col-md-12">
+  <div>
+    <% @jobs.each do |job| %>
+      <%= link_to job.title, job_path(job) %><br>
+      <%= job.location %><br>
+      <%= job.description %><br>
+      <%= job.level %><br>
+      <%= job.salary %><br>
+    <%end%>
+  </div>
+</div>
