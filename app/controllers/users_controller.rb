@@ -26,5 +26,22 @@ class UsersController < ApplicationController
   #  binding.pry
     @user = User.find(params[:id])
     @job_app = @user.job_application
+    #binding.pry
+  end
+
+  def edit
+    @user = current_user
+  end
+
+  def update
+    @user = current_user
+    @user.update(user_params)
+    redirect_to user_path(@user)
+  end
+
+private
+
+  def user_params
+    params.require(:user).permit(:user_photo)
   end
 end
