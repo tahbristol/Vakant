@@ -1,5 +1,5 @@
 <div class="col-md-4">
- <div class="image-place" style="height:200px; width:200px; background-color: lightgrey;">
+ <div class="image-place" style="">
 <% if @user.user_photo_file_name.nil? %>
   <%= form_for @user, html: {multipart: true} do |f| %>
     <%= f.label :user_photo %>
@@ -7,7 +7,7 @@
     <%= f.submit %>
     <%end%>
   <%else%>
-    <%= image_tag @user.user_photo.url(:thumb) %>
+    <%= image_tag @user.user_photo.url(:medium) %>
   <%end%>
 
 

@@ -17,3 +17,14 @@
 //= require popper
 //= require jquery
 //= require bootstrap-sprockets
+
+
+$(function(){
+   //set notices to disappear
+  if($('#flash_alert') || $('#flash_notice') || $('#flash_error')){
+    setTimeout(function(){
+       $('#noticeFlashes').fadeOut('slow');
+
+    },3000);
+  }
+ });
