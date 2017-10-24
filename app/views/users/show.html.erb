@@ -1,21 +1,25 @@
 <div class="col-md-4">
- <div class="image-place" style="">
-<% if @user.user_photo_file_name.nil? %>
-  <%= form_for @user, html: {multipart: true} do |f| %>
-    <%= f.label :user_photo %>
-    <%= f.file_field :user_photo %>
-    <%= f.submit %>
-    <%end%>
-  <%else%>
-    <%= image_tag @user.user_photo.url(:medium) %>
-  <%end%>
+  <div class="image-place" style="">
+
+    <% if @user_profile.blank? %>
+      <%= form_for @user_profile, html: {multipart: true} do |f| %>
+        <%= f.label :user_photo %>
+        <%= f.file_field :user_photo %><br><br>
+        <%= f.submit %><br><br>
+        <%end%>
+      <%else%>
+
+      <%end%>
 
 
- </div>
- <div><h1>Users Profile</h1></br>
-   <p>Email: <%= @user.email %><br>
+  </div>
+<% if @user.job_application.present? && @user.job_application.profile.present? %>
+  <%= @profile.full_name %>
+<%else%>
+   <p>Complete your profile and application to start applying for jobs.</p>
+<%end%>
 
-</div>
+
 </div>
 <div class="col-md-8">
 
@@ -27,7 +31,7 @@
   <%= @user.city_state %><br>
   <%= link_to "Edit Application", edit_job_application_path%><br>
   <%else%>
-    <%= link_to "Click to complete your application", new_job_application_path %><br>
+    <%= link_to "Click to complete your application", new_profile_path %><br>
 <%end%>
 
   <%= link_to "Open Jobs", jobs_path %>

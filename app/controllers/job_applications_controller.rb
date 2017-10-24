@@ -2,13 +2,17 @@ class JobApplicationsController < ApplicationController
 
   def new
     @job_application = JobApplication.new
+
+
   end
 
   def create
 
-   @job_application = JobApplication.create(job_application_params)
+
    @user = current_user
-   @user.job_application = @job_application
+
+   @user.build_job_application(job_application_params)
+   binding.pry
    @user.save
    redirect_to user_path(@user)
   end

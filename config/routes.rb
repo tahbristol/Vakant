@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :job_applications, only: [:new, :create, :show, :edit, :update]
   resources :users, only: [:index, :show, :edit, :update]
   resources :organizations, only: [:index, :show]
+  resources :profiles
   get 'organizations/:id/jobs', to: 'organizations#jobs'
   resources :jobs do
     resources :users

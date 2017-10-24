@@ -16,17 +16,17 @@ class UsersController < ApplicationController
   end
 
   def create
-  #  binding.pry
+
     if @user.save
       redirect_to @user
     end
   end
 
   def show
-  #  binding.pry
+
     @user = User.find(params[:id])
-    @job_app = @user.job_application
-    #binding.pry
+    @user_profile = Profile.new
+
   end
 
   def edit
@@ -35,6 +35,7 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
+
     @user.update(user_params)
     redirect_to user_path(@user)
   end
@@ -42,6 +43,6 @@ class UsersController < ApplicationController
 private
 
   def user_params
-    params.require(:user).permit(:user_photo)
+    params.require(:user).permit(:user_photo, :job_application_attributes => [:first_name, :middle_name, :last_name, :address, :city, :state, :zip_code, :phone])
   end
 end

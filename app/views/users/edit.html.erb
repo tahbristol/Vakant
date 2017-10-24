@@ -1,0 +1,12 @@
+<%= form_for @user do |f| %>
+
+
+
+<%= fields_for :job_application, @user.job_application do |job_app| %>
+  <%= job_app.label :first_name %>
+  <%= job_app.text_field :first_name %><br>
+
+  <%= job_app.submit %>
+
+  <%end%>
+<%end%>
