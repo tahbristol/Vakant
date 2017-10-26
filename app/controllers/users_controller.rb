@@ -1,13 +1,13 @@
 class UsersController < ApplicationController
 
   def index
-    binding.pry
+    
     if params[:job_id]
       @users = Job.find(params[:job_id]).users
     else
     @users = User.all
   end
-  binding.pry
+
   end
 
 

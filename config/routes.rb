@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, path: 'users', controllers: {sessions: 'users/sessions'}
+  devise_for :users, path: 'users', controllers: {sessions: 'users/sessions', omniauth_callbacks: 'users/omniauth_callbacks'}
   devise_for :organizations, path: 'organizations', controllers: {sessions: "organizations/sessions"}
 
 
@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :edit, :update]
   resources :organizations, only: [:index, :show]
   resources :profiles
+
   get 'organizations/:id/jobs', to: 'organizations#jobs'
   resources :jobs do
     resources :users
