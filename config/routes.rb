@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :job_applications, only: [:new, :create, :show, :edit, :update]
-  resources :users, only: [:index, :show, :edit, :update]
+  resources :users, only: [:new, :index, :show, :edit, :update]
   resources :organizations, only: [:index, :show]
   resources :profiles
 
@@ -18,12 +18,5 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-  devise_scope :user do
-    get 'sign_up_seeker', to: 'devise/registrations#new'
-  end
-
-  devise_scope :organization do
-    get 'sign_up_org', to: 'devise/registrations#new'
-  end
 
   end
