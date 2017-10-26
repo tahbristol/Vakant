@@ -1,0 +1,10 @@
+User RoR
+has_many, belongs_to and a has_many :through using a model acting as join table
+reasonable validations
+class level ActiveRecord scope method ie @user.tasks.overdue or Cart.most_valuable
+nested form that writes to associated model through custom attribute writer
+user authentication, devise or otherwise
+oauth
+nested resource
+forms should display validation errors
+DRY application, Skinny controllers, Fat methods
