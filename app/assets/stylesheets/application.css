@@ -33,3 +33,7 @@
   background-color: #DF4A32;
   color: white;
 }
+
+li {
+  list-style: none;
+}

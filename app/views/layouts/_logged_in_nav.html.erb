@@ -1,0 +1,19 @@
+<nav class="nav nav-pills flex-column flex-sm-row">
+  <%= link_to "Home", root_path, class:"flex-sm-fill text-sm-center nav-link " %>
+
+  <% if current_user  %>
+
+  <%= link_to "Jobs", jobs_path, class: "nav-link" %>
+
+  <%= link_to "Sign out-U", destroy_user_session_path, class: "nav-link", :method => :delete %>
+
+  <%elsif current_organization%>
+
+  <%= link_to "Sign out-O", destroy_organization_session_path, class:"flex-sm-fill text-sm-center nav-link ",  :method => :delete %>
+
+  <%else%>
+
+  <%end%>
+
+
+</nav>

@@ -2,9 +2,9 @@
 <h2><%= @org.name %>'s Open Jobs</h2>
 </div>
 <ul>
-<% @jobs.each do |job| %>
+  <% @jobs.each.with_index(1) do |job,i| %>
   <li>
-   <%= link_to job.title, job_path(job) %> </br>
+    <%="#{i}."%><%= link_to job.title, job_path(job) %><br>
 </li>
    <%end%>
 </ul>
