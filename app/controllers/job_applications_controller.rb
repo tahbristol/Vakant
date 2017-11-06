@@ -13,9 +13,9 @@ class JobApplicationsController < ApplicationController
     else
      @job_application = JobApplication.create(job_application_params)
     end
-  
+
     @user.save
-    redirect_to user_path(@user)
+    redirect_to user_path(current_user)
   end
 
   def show
@@ -29,6 +29,8 @@ class JobApplicationsController < ApplicationController
 
   def update
 
+     current_user.job_application.update(job_application_params)
+     redirect_to user_path(current_user)
   end
 
   private

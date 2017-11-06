@@ -6,7 +6,7 @@ class User < ApplicationRecord
    :omniauth_providers => [:google_oauth2]
 
   has_many :job_users
-  has_many :jobs, through: :job_users
+  has_many :jobs_applied, through: :job_users, source: "job"
   has_one :job_application
 
 
