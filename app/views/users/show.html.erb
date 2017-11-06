@@ -20,7 +20,16 @@
 
 
 </div>
+<div class="col-md-4">
+<div class="jobs_applied">
+  <h2>Jobs you've applied to</h2><br>
+  <% @jobs_applied.each.with_index(1) do |job, i| %>
+    <%= "#{i}." %><%= link_to job.title, job_path(job) %> @
+    <%= job.organization.name %>
 
-<div class="col-md-8">
+  <%end%>
+</div>
+
+
   <%= link_to "Open Jobs", jobs_path %>
 </div>

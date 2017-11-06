@@ -17,7 +17,7 @@ class JobsController < ApplicationController
   def show
     @job = Job.find(params[:id])
     @org = @job.organization
-  
+
   end
 
   def edit
@@ -28,6 +28,14 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
     @job.update(job_params)
     redirect_to job_path(@job)
+  end
+
+  def applied_to
+    binding.pry
+    @job = Job.find(params[:id])
+    current_user.jobs_applied << @job
+    current_user.save
+    redirect_to current_user
   end
 
   private

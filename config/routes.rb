@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   resources :organizations, only: [:index, :show, :edit, :update]
   resources :profiles
 
+
   get 'organizations/:id/jobs', to: 'organizations#jobs'
+  post 'jobs/:id/apply', to: 'jobs#applied_to'
   resources :jobs do
     resources :users
   end
