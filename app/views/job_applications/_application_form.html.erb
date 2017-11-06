@@ -1,24 +1,30 @@
-
-
-
-
+<div class="col-sm-12"><h1>Application Form</h1></div>
+<div class="col-sm-12">
 <%= form_for @job_application do |f| %>
- <%= f.fields_for :profile do |profile_attributes| %>
- <%= profile_attributes.label :first_name %>
- <%= profile_attributes.text_field :first_name %><br>
+  <div class="form-group">
+<%= f.fields_for :profile do |profile_attributes| %>
 
- <%= profile_attributes.label :middle_name %>
- <%= profile_attributes.text_field :middle_name %><br>
+    <%= profile_attributes.label :first_name %>
+    <%= profile_attributes.text_field :first_name%><br>
 
- <%= profile_attributes.label :last_name %>
- <%= profile_attributes.text_field :last_name %><br>
+    <%= profile_attributes.label :middle_name %>
+    <%= profile_attributes.text_field :middle_name %><br>
+
+    <%= profile_attributes.label :last_name %>
+    <%= profile_attributes.text_field :last_name %><br>
+
+    <%= profile_attributes.label :phone %>
+    <%= profile_attributes.text_field :phone %><br>
+
+    <%= profile_attributes.label :alternate_phone %>
+    <%= profile_attributes.text_field :alternate_phone %><br>
 
 
-   <%= f.label :phone %>
-   <%= f.text_field :phone %><br>
 
- <%end%>
 
-  <%= f.submit %>
 
   <%end%>
+  <%= f.submit %>
+</div>
+  <%end%>
+</div>

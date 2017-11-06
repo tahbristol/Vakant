@@ -1,38 +1,26 @@
 <div class="col-md-4">
   <div class="image-place" style="">
-
-    <% if @user_profile.blank? %>
-      <%= form_for @user_profile, html: {multipart: true} do |f| %>
+    <% if @job_application_profile.blank? %>
+      <%= form_for @job_application_profile, html: {multipart: true} do |f| %>
         <%= f.label :user_photo %>
         <%= f.file_field :user_photo %><br><br>
         <%= f.submit %><br><br>
         <%end%>
-      <%else%>
-
-      <%end%>
-
-
+    <%else%>
+        <h4>Photo</h4>
+    <%end%>
   </div>
+
+    <h2>User Job Application</h2>
 <% if @user.job_application.present? && @user.job_application.profile.present? %>
-  <%= @profile.full_name %>
+  <%= render partial: 'users/profile_present', locals: {profile: @profile} %>
 <%else%>
-   <p>Complete your profile and application to start applying for jobs.</p>
+  <%= render partial: 'users/profile_absent' %>
 <%end%>
 
 
 </div>
+
 <div class="col-md-8">
-
-    <h2>User Job Application</h2>
-  <% if @user.job_application.present? %>
-  <%= @user.full_name %>
-  <p>--------------------------------</p>
-  <%= @job_app.address %><br>
-  <%= @user.city_state %><br>
-  <%= link_to "Edit Application", edit_job_application_path%><br>
-  <%else%>
-    <%= link_to "Click to complete your application", new_job_application_path %><br>
-<%end%>
-
   <%= link_to "Open Jobs", jobs_path %>
 </div>

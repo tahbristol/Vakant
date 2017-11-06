@@ -9,13 +9,7 @@ class User < ApplicationRecord
   has_many :jobs, through: :job_users
   has_one :job_application
 
-  def full_name
 
-  end
-
-  def city_state
-
-  end
 
   def self.from_omniauth(auth)
       where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

@@ -2,8 +2,15 @@ class JobApplication < ApplicationRecord
   belongs_to :user
 
   has_one :profile
-  accepts_nested_attributes_for :profile
 
 
+ def profile_attributes=(attributes)
+   if self.profile.present?
+     self.profile.update(attributes)
+   else
+     self.build_profile(attributes)
+     self.save
+   end
+ end
 
 end

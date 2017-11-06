@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def index
-    
+
     if params[:job_id]
       @users = Job.find(params[:job_id]).users
     else
@@ -25,7 +25,8 @@ class UsersController < ApplicationController
   def show
 
     @user = User.find(params[:id])
-    @user_profile = Profile.new
+    @job_application_profile = Profile.new
+    @profile = @user.job_application.profile unless @user.job_application.nil?
 
   end
 
