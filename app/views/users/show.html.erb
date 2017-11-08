@@ -24,7 +24,7 @@
 <div class="jobs_applied">
   <h2>Jobs you've applied to</h2><br>
   <% @jobs_applied.each.with_index(1) do |job, i| %>
-    <%= "#{i}." %><%= link_to job.title, job_path(job) %> @
+    <%= "#{i}." %><%= link_to job.title, job_path(job) %> 
     <%= job.organization.name %>
 
   <%end%>

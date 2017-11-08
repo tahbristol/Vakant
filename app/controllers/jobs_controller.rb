@@ -1,8 +1,13 @@
 class JobsController < ApplicationController
 
   def index
+    if params[:organization_id]
+      @jobs = Job.find(params(:organization_id)).jobs
+    else
     @jobs = Job.all
+   end
   end
+  
   def new
     @job = Job.new
   end
@@ -31,7 +36,7 @@ class JobsController < ApplicationController
   end
 
   def applied_to
-    binding.pry
+
     @job = Job.find(params[:id])
     current_user.jobs_applied << @job
     current_user.save

@@ -12,11 +12,10 @@ Rails.application.routes.draw do
 
 
   get 'organizations/:id/jobs', to: 'organizations#jobs'
-  post 'jobs/:id/apply', to: 'jobs#applied_to'
-  resources :jobs do
-    resources :users
+  resources :organizations do
+    resources :jobs, only: [:edit, :update, :show]
   end
-
+  post 'jobs/:id/apply', to: 'jobs#applied_to'
 
   root 'welcome#index'
 
