@@ -1,10 +1,10 @@
-Use RoR                                                                          DONE
-has_many, belongs_to and a has_many :through using a model acting as join table  DONE
-reasonable validations                                                           DONE
-class level ActiveRecord scope method ie @user.tasks.overdue or Cart.most_valuable
-nested form that writes to associated model through custom attribute writer.     DONE
-user authentication, devise or otherwise                                         DONE
-oauth                                                                            DONE
+Use RoR                                                                             DONE
+has_many, belongs_to and a has_many :through using a model acting as join table     DONE
+reasonable validations                                                              DONE
+class level ActiveRecord scope method ie @user.tasks.overdue or Cart.most_valuable  DONE
+nested form that writes to associated model through custom attribute writer.        DONE
+user authentication, devise or otherwise                                            DONE
+oauth                                                                               DONE
 nested resource
-forms should display validation errors                                           DONE
+forms should display validation errors                                              DONE
 DRY application, Skinny controllers, Fat methods
