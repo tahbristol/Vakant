@@ -11,6 +11,7 @@ class OrganizationsController < ApplicationController
 
   def jobs
     @org = current_organization
+    #binding.pry
     @jobs = current_organization.jobs
   end
 

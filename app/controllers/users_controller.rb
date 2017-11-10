@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   def index
 
     if params[:job_id]
+      @job = Job.find(params[:job_id])
       @users = Job.find(params[:job_id]).users
     else
     @users = User.all
