@@ -2,7 +2,9 @@
 <div class="col-sm-12">
 <%= form_for @job_application do |f| %>
   <div class="form-group">
-<%= f.fields_for :profile do |profile_attributes| %>
+<%= f.fields_for :profile, html: {multipart: true} do |profile_attributes| %>
+    <%= profile_attributes.label :user_photo %>
+    <%= profile_attributes.file_field :user_photo %><br><br>
 
     <%= profile_attributes.label :first_name %>
     <%= profile_attributes.text_field :first_name %><br>

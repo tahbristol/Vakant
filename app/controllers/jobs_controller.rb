@@ -38,7 +38,7 @@ class JobsController < ApplicationController
     redirect_to job_path(@job)
   end
 
-  def applied_to
+  def apply
 
     @job = Job.find(params[:id])
     current_user.jobs_applied << @job

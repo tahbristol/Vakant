@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   resources :organizations do
     resources :jobs, only: [:index, :edit, :update, :show, :new, :create, :delete]
   end
-  post 'jobs/:id/apply', to: 'jobs#applied_to'
+  post 'jobs/:id/apply', to: 'jobs#apply'
 
   root 'welcome#index'
 

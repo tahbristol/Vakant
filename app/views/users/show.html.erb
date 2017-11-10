@@ -1,13 +1,9 @@
 <div class="col-md-4">
   <div class="image-place" style="">
-    <% if @job_application_profile.blank? %>
-      <%= form_for @job_application_profile, html: {multipart: true} do |f| %>
-        <%= f.label :user_photo %>
-        <%= f.file_field :user_photo %><br><br>
-        <%= f.submit %><br><br>
-        <%end%>
-    <%else%>
+    <% if @job_application_profile.present? %>
+
         <h4>Photo</h4>
+        <%= image_tag @profile.user_photo.url(:medium) %>
     <%end%>
   </div>
 
@@ -27,7 +23,7 @@
   <h2>Jobs you've applied to</h2><br>
   <% @jobs_applied.each.with_index(1) do |job, i| %>
     <%= "#{i}." %><%= link_to job.title, job_path(job) %>
-    <%= job.organization.name %>
+    <%= job.organization.name %><br>
 
   <%end%>
 </div>

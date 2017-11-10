@@ -35,7 +35,7 @@ class JobApplicationsController < ApplicationController
 
   private
     def job_application_params
-      params.require(:job_application).permit(:profile_attributes => [:first_name, :middle_name, :last_name, :phone, :alternate_phone])
+      params.require(:job_application).permit(:profile_attributes => [:user_photo, :first_name, :middle_name, :last_name, :phone, :alternate_phone])
     end
 
 
