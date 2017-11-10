@@ -7,16 +7,19 @@ class JobsController < ApplicationController
     @jobs = Job.all
    end
   end
-  
+
   def new
-    @job = Job.new
+    #binding.pry
+    @org = Organization.find(params[:organization_id])
+    @job = @org.jobs.build
   end
 
   def create
-    @org = current_organization
+    binding.pry
+    @org = Organization.find(params[:organization_id])
     @job = @org.jobs.build(job_params)
     @job.save
-    redirect_to job_path(@job)
+    redirect_to organization_jobs_path(@org)
   end
 
   def show

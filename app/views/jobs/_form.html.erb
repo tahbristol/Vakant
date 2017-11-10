@@ -1,11 +1,15 @@
-<%= form_for @job do |f| %>
+<div class="col-sm-12"><h1>New Job Form</h1></div>
+<div class="col-sm-12">
+
+<%= form_for [@org, @job] do |f| %>
+  <div class="form-group">
   <%= f.label :title %>
   <%= f.text_field :title %><br>
 
   <%= f.label :location %>
   <%= f.text_field :location %><br>
 
-  <%= f.label :description %>
+  <%= f.label :description %><br>
   <%= f.text_area :description %><br>
 
   <%= f.label :level %>
@@ -16,5 +20,7 @@
 
 
   <%= f.submit %>
-
+</div>
   <%end%>
+
+</div>
