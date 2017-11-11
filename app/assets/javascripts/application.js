@@ -27,7 +27,11 @@ $(function(){
 
     },3000);
   }
-
-  $('input').addClass('form-control');
+  var inputs = document.getElementsByTagName('input');
+    for (var i = 0; i<inputs.length; i++) {
+      if (inputs[i].parentElement.className != "button_to") {
+        inputs[i].addClass('form-control');
+      }
+    }
 
  });

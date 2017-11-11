@@ -39,11 +39,15 @@ class JobsController < ApplicationController
   end
 
   def apply
-
-    @job = Job.find(params[:id])
-    current_user.jobs_applied << @job
-    current_user.save
-    redirect_to current_user
+    if current_user
+      @job = Job.find(params[:id])
+      current_user.jobs_applied << @job
+      current_user.save
+      redirect_to current_user
+    else
+      session[:viewed_job] = params[:id]
+      redirect_to new_user_session_path
+    end
   end
 
   private
