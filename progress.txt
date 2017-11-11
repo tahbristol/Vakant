@@ -5,6 +5,6 @@ class level ActiveRecord scope method ie @user.tasks.overdue or Cart.most_valuab
 nested form that writes to associated model through custom attribute writer.        DONE
 user authentication, devise or otherwise                                            DONE
 oauth                                                                               DONE
-nested resource
+nested resource                                                                     DONE
 forms should display validation errors                                              DONE
 DRY application, Skinny controllers, Fat methods
