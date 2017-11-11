@@ -2,16 +2,16 @@
 
 
   <% if current_user  %>
-    <%= link_to "Home", current_user, class:"flex-sm-fill text-sm-center nav-link " %>
+    <%= link_to "My Profile", current_user, class:"flex-sm-fill text-sm-center nav-link " %>
 
     <%= link_to "Jobs", jobs_path, class: "nav-link" %>
 
-    <%= link_to "Sign out-U", destroy_user_session_path, class: "nav-link", :method => :delete %>
+    <%= link_to "Sign out", destroy_user_session_path, class: "nav-link", :method => :delete %>
 
   <%elsif current_organization%>
-    <%= link_to "Home", current_organization, class:"flex-sm-fill text-sm-center nav-link " %>
+    <%= link_to "Organization Profile", current_organization, class:"flex-sm-fill text-sm-center nav-link " %>
 
-    <%= link_to "Sign out-O", destroy_organization_session_path, class:"flex-sm-fill text-sm-center nav-link ",  :method => :delete %>
+    <%= link_to "Sign out", destroy_organization_session_path, class:"flex-sm-fill text-sm-center nav-link ",  :method => :delete %>
 
 
 
