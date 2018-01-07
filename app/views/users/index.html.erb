@@ -1,3 +1,8 @@
-<% @users.each do |user| %>
-  <p><%= user.email %></p>
+<div class="col-sm-12">
+<h3>Applicants for Job: <%= @job.title %></h3><br>
+</div>
+<div class="col-sm-12">
+<% @users.each.with_index(1) do |user,i| %>
+  <p><%= "#{i}. "%><%= link_to user.job_application.profile.full_name, user %> | <%= user.email %></p>
   <%end%>
+</div>

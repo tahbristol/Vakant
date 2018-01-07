@@ -1,0 +1,18 @@
+<div style="margin-top: 100px;">
+<h1>Organization Profile</h1>
+<% if @org_profile.has_key?(:name) && @org_profile.has_key?(:location) %>
+  <p>Organization Name: <%= @org.name %></p>
+  <p>Location: <%= @org.location %></p>
+  <p>Email: <%= @org.email%></p><br>
+<%else%>
+  <%= button_to "Complete Profile",{controller: "organizations", action: "edit", :id => @org.id}, method: :get %><br>
+  <%end%>
+<% if current_organization.present? %>
+<%= button_to "Create new Job", new_organization_job_path(@org), method: :get %><br>
+<%= link_to "Open Jobs", "/organizations/#{@org.id}/jobs" %> |
+<%= link_to "Edit Org", edit_organization_registration_path %><br>
+<%else%>
+<%= link_to "Back", :back %> | <%= link_to "My Profile", user_path(current_user) %>
+
+<%end%>
+</div>

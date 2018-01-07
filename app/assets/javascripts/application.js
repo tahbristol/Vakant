@@ -13,3 +13,25 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+
+//= require popper
+//= require jquery
+//= require bootstrap-sprockets
+
+
+$(function(){
+   //set notices to disappear
+  if($('#flash_alert') || $('#flash_notice') || $('#flash_error')){
+    setTimeout(function(){
+       $('#noticeFlashes').fadeOut('slow');
+
+    },3000);
+  }
+  var inputs = document.getElementsByTagName('input');
+    for (var i = 0; i<inputs.length; i++) {
+      if (inputs[i].parentElement.className != "button_to") {
+        inputs[i].addClass('form-control');
+      }
+    }
+
+ });
