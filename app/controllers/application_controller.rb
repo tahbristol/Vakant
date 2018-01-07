@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
  before_action :store_user_location!, if: :storable_location?
   def after_sign_in_path_for(resource)
 
-       stored_location_for(resource) || resource
+  resource
 
   end
 
