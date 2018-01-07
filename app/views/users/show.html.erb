@@ -1,7 +1,33 @@
-<h1>Users Profile</h1>
-  <p>Email: <%= @user.email %>
-  <% if @user.job_application.present? %>
-  <%= @user.full_name %>
-  <p>--------------------------------</p>
-  <%= @user.full_address %>
+<div class="col-md-4">
+  <div class="image-place" style="">
+    <% if @job_application_profile.present? %>
+
+        <h4>Photo</h4>
+        <%= image_tag @profile.user_photo.url(:medium) %>
+    <%end%>
+  </div>
+
+    <h2>User Job Application</h2>
+    <% if current_user %>
+<% if @user.job_application.present? && @user.job_application.profile.present? %>
+  <%= render partial: 'users/profile_present', locals: {profile: @profile} %>
+<%else%>
+  <%= render partial: 'users/profile_absent' %>
 <%end%>
+<%end%>
+
+
+</div>
+<div class="col-md-4">
+<div class="jobs_applied">
+  <h2>Jobs you've applied to</h2><br>
+  <% @jobs_applied.each.with_index(1) do |job, i| %>
+    <%= "#{i}." %><%= link_to job.title, job_path(job) %>
+    <%= job.organization.name %><br>
+
+  <%end%>
+</div>
+
+
+  <%= link_to "Open Jobs", jobs_path %>
+</div>
