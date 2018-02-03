@@ -3,10 +3,10 @@ class JobApplicationsController < ApplicationController
   def new
     @job_application = JobApplication.new
     @profile = @job_application.build_profile
-
   end
 
   def create
+
     @user = current_user
     if @user.job_application.present?
      @job_application = @user.job_application.update(job_application_params)
@@ -23,6 +23,7 @@ class JobApplicationsController < ApplicationController
   end
 
   def edit
+
     @job_application = current_user.job_application
     @profile = @job_application.profile
   end
@@ -35,7 +36,7 @@ class JobApplicationsController < ApplicationController
 
   private
     def job_application_params
-      params.require(:job_application).permit(:profile_attributes => [:user_photo, :first_name, :middle_name, :last_name, :phone, :alternate_phone])
+      params.require(:job_application).permit(:profile_attributes => [:user_photo, :first_name, :middle_name, :last_name, :phone, :alternate_phone, :address_attributes => [:street]])
     end
 
 
