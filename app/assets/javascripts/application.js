@@ -34,4 +34,36 @@ $(function(){
       }
     }
 
+		$('#listJobs').on('click', function(e){
+			e.preventDefault();
+			listJobs();
+		})
+
+
+
  });
+
+function listJobs(){
+	$.get('/jobs')
+		.done((jobs) => {
+
+			jobs.forEach(function(job){
+				console.log(job);
+					makeDisplayTemplate(job, 'jobsIndex', 'output');
+			})
+
+		})
+}
+
+
+
+function makeDisplayTemplate(data, template, output) {
+
+  let displayTemplate = document.getElementById(template).innerHTML;
+
+  let finalTemplate = Handlebars.compile(displayTemplate);
+  let html = finalTemplate(data);
+
+
+  document.getElementById('output').innerHTML += html;
+}

@@ -1,10 +1,11 @@
 class JobsController < ApplicationController
  def index
-  @jobs = if params[:organization_id]
-           Job.find(params(:organization_id)).jobs
-          else
-           Job.all
-         end
+  if params[:organization_id]
+   @jobs = Job.find(params(:organization_id)).jobs
+  else
+   @jobs = Job.all
+ 	end
+ 	render json: @jobs
  end
 
  def new

@@ -40,8 +40,19 @@
       <%= yield %>
     </div>
     </div>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<div id="output">
+
+					</div>
+				</div>
+			</div>
+		</div>
 
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+		<%= render partial: '../views/jobs/indexTemplate' %>
   </body>
 </html>
