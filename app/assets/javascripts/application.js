@@ -37,33 +37,40 @@ $(function(){
 		$('#listJobs').on('click', function(e){
 			e.preventDefault();
 			listJobs();
-		})
+		});
 
 
-
+		$('.jobShow').on('click', function(e){
+			e.preventDefault();
+		   let url = $(this).attr('href');
+			 $.get(url)
+			 	.done((res) => {
+					makeDisplayTemplate(res.job, '#jobsShowPage', '.jobs_applied')
+				})
+		});
  });
+
+
+
 
 function listJobs(){
 	$.get('/jobs')
 		.done((jobs) => {
-
 			jobs.forEach(function(job){
-				console.log(job);
-					makeDisplayTemplate(job, 'jobsIndex', 'output');
-			})
-
-		})
+					makeDisplayTemplate(job, '#jobsShowPage', '.output');
+			});
+		});
 }
 
 
 
+
 function makeDisplayTemplate(data, template, output) {
-
-  let displayTemplate = document.getElementById(template).innerHTML;
-
+	console.log(template);
+  let displayTemplate =  $(template).html();
   let finalTemplate = Handlebars.compile(displayTemplate);
   let html = finalTemplate(data);
-
-
-  document.getElementById('output').innerHTML += html;
+	console.log(output);
+	$(output).html(html);
+  
 }

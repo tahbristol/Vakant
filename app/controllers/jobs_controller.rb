@@ -24,6 +24,8 @@ class JobsController < ApplicationController
  def show
   @job = Job.find(params[:id])
   @org = @job.organization
+	render json: {job: @job,
+								org: @org}
  end
 
  def edit
