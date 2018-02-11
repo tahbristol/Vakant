@@ -11,7 +11,7 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require turbolinks
+
 //= require_tree .
 
 //= require popper
@@ -34,23 +34,37 @@ $(function(){
       }
     }
 
-		$('#listJobs').on('click', function(e){
+		$('.openJob').on('click', function(e){
+
 			e.preventDefault();
-			listJobs();
+			 let url = $(this).attr('href');
+			$.get(url)
+				.done((data) => {
+					makeDisplayTemplate(data.job,'#jobsShowPage','#listedJobs' );
+				})
 		});
 
 
 		$('.jobShow').on('click', function(e){
 			e.preventDefault();
-		   let url = $(this).attr('href');
+			 let url = $(this).attr('href');
 			 $.get(url)
 			 	.done((res) => {
+					let job = new Job(res.job.title,res.job.location,res.job.salary, res.job.level, res.job.description);
 					makeDisplayTemplate(res.job, '#jobsShowPage', '.jobs_applied')
 				})
 		});
  });
 
-
+class Job {
+	constructor(title,location,salary,level,description){
+		this.title = title;
+		this.location = location;
+		this.salary = salary;
+		this.level = level;
+		this.description = description;
+	}
+}
 
 
 function listJobs(){
@@ -63,7 +77,9 @@ function listJobs(){
 }
 
 
+function showJob(data,template,output){
 
+}
 
 function makeDisplayTemplate(data, template, output) {
 	console.log(template);
@@ -72,5 +88,5 @@ function makeDisplayTemplate(data, template, output) {
   let html = finalTemplate(data);
 	console.log(output);
 	$(output).html(html);
-  
+
 }

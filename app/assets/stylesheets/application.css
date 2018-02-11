@@ -13,6 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+ div {
+	 border: 1px solid black;
+ }
 .row {
   text-align: center;
 }

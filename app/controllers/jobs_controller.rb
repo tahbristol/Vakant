@@ -5,7 +5,7 @@ class JobsController < ApplicationController
   else
    @jobs = Job.all
  	end
- 	render json: @jobs
+ 	
  end
 
  def new
