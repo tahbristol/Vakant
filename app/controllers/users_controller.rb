@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 
   def index
-
     if params[:job_id]
       @job = Job.find(params[:job_id])
       @users = Job.find(params[:job_id]).users
@@ -13,7 +12,7 @@ class UsersController < ApplicationController
 
 
   def new
-
+			binding.pry
   end
 
   def create
@@ -24,7 +23,6 @@ class UsersController < ApplicationController
   end
 
   def show
-
     @user = User.find(params[:id])
     @job_application_profile = Profile.new
     @profile = @user.job_application.profile unless @user.job_application.nil?
