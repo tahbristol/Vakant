@@ -10,12 +10,13 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
 //= require rails-ujs
 
 //= require_tree .
 
 //= require popper
-//= require jquery
+
 //= require bootstrap-sprockets
 
 
@@ -30,12 +31,29 @@ $(function(){
   var inputs = document.getElementsByTagName('input');
     for (var i = 0; i<inputs.length; i++) {
       if (inputs[i].parentElement.className != "button_to") {
-        inputs[i].addClass('form-control');
+        inputs[i].classList.add('form-control');
       }
     }
 
+		$('#new_job').on('submit', function(e){
+	  	e.preventDefault();
+			let action = $(this).attr('action');
+			let title = $('#job_title').val();
+			let local = $('#job_location').val();
+			let des = $('#job_description').val();
+			let level = $('#job_level').val();
+			let salary = $('#job_salary').val();
+			let job = new Job(title,local,salary,level,des);
+			let org_id = action.split('/')[2];
+			$.post(`${action}`, {job: job})
+				.done((newJobRes) => {
+					let org_id = newJobRes.organization_id;
+					let url = `/organizations/${org_id}/jobs`
+					window.location.href = url
+				})
+		})
+/*************JOB SHOW PAGE***************/
 		$('.openJob').on('click', function(e){
-
 			e.preventDefault();
 			 let url = $(this).attr('href');
 			$.get(url)
@@ -55,7 +73,7 @@ $(function(){
 				})
 		});
  });
-
+/*************JOB Class***************/
 class Job {
 	constructor(title,location,salary,level,description){
 		this.title = title;
@@ -66,7 +84,7 @@ class Job {
 	}
 }
 
-
+/*************JOBS INDEX***************/
 function listJobs(){
 	$.get('/jobs')
 		.done((jobs) => {
@@ -75,18 +93,11 @@ function listJobs(){
 			});
 		});
 }
-
-
-function showJob(data,template,output){
-
-}
-
+/*************HANDLEBARS TEMPLATE-OUTPUT***************/
 function makeDisplayTemplate(data, template, output) {
-	console.log(template);
   let displayTemplate =  $(template).html();
   let finalTemplate = Handlebars.compile(displayTemplate);
   let html = finalTemplate(data);
-	console.log(output);
 	$(output).html(html);
 
 }

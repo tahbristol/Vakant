@@ -5,7 +5,7 @@ class JobsController < ApplicationController
   else
    @jobs = Job.all
  	end
- 	
+
  end
 
  def new
@@ -15,10 +15,11 @@ class JobsController < ApplicationController
  end
 
  def create
+	 #binding.pry
   @org = Organization.find(params[:organization_id])
   @job = @org.jobs.build(job_params)
   @job.save
-  redirect_to organization_jobs_path(@org)
+  render json: @job
  end
 
  def show
@@ -53,6 +54,6 @@ class JobsController < ApplicationController
  private
 
  def job_params
-  params.require(:job).permit(:title, :location, :description, :level, :salary, :organization_id)
+  params.require(:job).permit(:title, :location, :description, :level, :salary, :organization_id, :job)
  end
 end
