@@ -57,7 +57,8 @@ $(function(){
 					let org_id = newJobRes.organization_id;
 					let url = `/organizations/${org_id}/jobs`
 					let jobNum = $('#orgJobsList').children.length;
-					$('#orgJobsList').append(`<li>${jobNum}. ${newJobRes.title} |` + `<a href="#" id="deleteJob">Delete</a>`)
+					let orgJobPath = `${url}/${newJobRes.id}`
+					$('#orgJobsList').append(`<li><a href="${orgJobPath}" |` + `<a href="${orgJobPath}" id="deleteJob">Delete</a>`)
 				})
 		})
 /*************JOB SHOW PAGE***************/
@@ -81,8 +82,8 @@ $(function(){
 				})
 		});
 
+/*****************DELETE****************/
 		$('.deleteJob').on('click', function(e){
-
 			let linkTag = $(this);
 			$.ajax({
 				url: $(this).attr('href'),
@@ -91,14 +92,16 @@ $(function(){
 			.done(function(res){
 				$(linkTag).parent().remove();
 			})
-
 			e.preventDefault();
 		})
+
+
 
 $('.showJobForm').on('click', function(e){
 	e.preventDefault();
 	$('.newJobOverlay').removeClass('notVisible');
 })
+
 
 
 

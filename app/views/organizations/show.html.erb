@@ -8,8 +8,7 @@
   <%= button_to "Complete Profile",{controller: "organizations", action: "edit", :id => @org.id}, method: :get %><br>
   <%end%>
 <% if current_organization.present? %>
-<%= link_to "Create new Job", "/organizations/#{@org.id}/jobs", method: :get, id: "newJobBtn", class: "btn btn-primary"%><br>
-<%= link_to "Open Jobs", "/organizations/#{@org.id}/jobs" %> |
+<%= link_to "Open Jobs", "/organizations/#{@org.id}/jobs", id: "newJobBtn", class: "btn btn-primary" %> |
 <%= link_to "Edit Org", edit_organization_path %><br>
 <%else%>
 <%= link_to "Back", :back %> | <%= link_to "My Profile", user_path(current_user) %>

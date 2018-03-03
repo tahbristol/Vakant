@@ -18,9 +18,7 @@ html, body {
 	margin:0px;
 	height: 100%;
 }
- div {
 
- }
 .row {
   text-align: center;
 }
@@ -30,7 +28,6 @@ html, body {
   height: 500px;
   margin: 0 auto;
   background-image: url('manhattanScape.jpg');
-
 }
 
 .nav {
@@ -42,6 +39,11 @@ html, body {
   color: white;
 }
 
+
+ul {
+	 padding:0px;
+ }
+
 li {
   list-style: none;
 }
@@ -49,12 +51,6 @@ li {
 input[type="submit"]:hover{
   background-color: lightgreen;
 }
-
-#output{
-
-
-}
-
 
 .notVisible {
 	display: none;
