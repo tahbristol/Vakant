@@ -55,3 +55,20 @@ input[type="submit"]:hover{
 .notVisible {
 	display: none;
 }
+
+form {
+	margin-left: auto;
+	margin-right: auto;
+	width:300px;
+}
+
+input[type="submit"] {
+
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+a.googleBtn {
+	margin-top: 10px;
+}
