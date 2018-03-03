@@ -49,12 +49,13 @@ $(function(){
 			let des = $('#job_description').val();
 			let level = $('#job_level').val();
 			let salary = $('#job_salary').val();
-			let job = new Job(title,local,salary,level,des);
+			let jobAttrs = new Job(title,local,salary,level,des);
 			let org_id = action.split('/')[2];
 			$('.newJobOverlay').addClass('notVisible');
-			$.post(`${action}`, {job: job})
+			$.post(`${action}`, {job: jobAttrs})
 				.done((newJobRes) => {
-					let org_id = newJobRes.organization_id;
+					let newJob = new Job(newJobRes.title,newJobRes.local, newJobRes.salary, newJobRes.level, newJobRes.des, newJobRes.created_at);
+					let daysOld = newJob.daysOld();
 					let url = `/organizations/${org_id}/jobs`
 					let jobNum = $('#orgJobsList').children.length;
 					let orgJobPath = `${url}/${newJobRes.id}`
@@ -124,14 +125,26 @@ $('#close').on('click', function(e){
 
 /*************JOB Class***************/
 class Job {
-	constructor(title,location,salary,level,description){
+	constructor(title,location,salary,level,description, timeStamp){
 		this.title = title;
 		this.location = location;
 		this.salary = salary;
 		this.level = level;
 		this.description = description;
+		this.timeStamp = timeStamp;
+	}
+
+	 daysOld(){
+		let now = new Date();
+		let created = new Date(this.timeStamp);
+		let now_ms = now.getTime();
+		let created_ms = created.getTime();
+		let diff = now_ms - created_ms/(1000*60*60*24);
+		return Math.round(diff);
 	}
 }
+
+
 
 /*************JOBS INDEX***************/
 function listJobs(){
