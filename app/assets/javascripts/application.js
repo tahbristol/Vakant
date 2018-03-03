@@ -35,6 +35,12 @@ $(function(){
       }
     }
 
+		$('#newJobBtn').on('click', function(e){
+			e.preventDefault();
+			window.location.replace($(this).attr('href'));
+
+		})
+
 		$('#new_job').on('submit', function(e){
 	  	e.preventDefault();
 			let action = $(this).attr('action');
@@ -45,11 +51,13 @@ $(function(){
 			let salary = $('#job_salary').val();
 			let job = new Job(title,local,salary,level,des);
 			let org_id = action.split('/')[2];
+			$('.newJobOverlay').addClass('notVisible');
 			$.post(`${action}`, {job: job})
 				.done((newJobRes) => {
 					let org_id = newJobRes.organization_id;
 					let url = `/organizations/${org_id}/jobs`
-					window.location.href = url
+					let jobNum = $('#orgJobsList').children.length;
+					$('#orgJobsList').append(`<li>${jobNum}. ${newJobRes.title} |` + `<a href="#" id="deleteJob">Delete</a>`)
 				})
 		})
 /*************JOB SHOW PAGE***************/
@@ -72,7 +80,45 @@ $(function(){
 					makeDisplayTemplate(res.job, '#jobsShowPage', '.jobs_applied')
 				})
 		});
+
+		$('.deleteJob').on('click', function(e){
+
+			let linkTag = $(this);
+			$.ajax({
+				url: $(this).attr('href'),
+				type: "DELETE"
+			})
+			.done(function(res){
+				$(linkTag).parent().remove();
+			})
+
+			e.preventDefault();
+		})
+
+$('.showJobForm').on('click', function(e){
+	e.preventDefault();
+	$('.newJobOverlay').removeClass('notVisible');
+})
+
+
+
+$('#close').on('click', function(e){
+	$('.newJobOverlay').addClass('notVisible');
+})
+
+
+
+
+
+
+
+
  });
+
+
+ /*****************DELETE JOB***********************/
+
+
 /*************JOB Class***************/
 class Job {
 	constructor(title,location,salary,level,description){

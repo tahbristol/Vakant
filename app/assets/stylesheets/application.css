@@ -14,8 +14,12 @@
  *= require_self
  */
 
+html, body {
+	margin:0px;
+	height: 100%;
+}
  div {
-	 border: 1px solid black;
+
  }
 .row {
   text-align: center;
@@ -47,6 +51,11 @@ input[type="submit"]:hover{
 }
 
 #output{
-	height: 100px;
-	background-color: lightgrey;
+
+
+}
+
+
+.notVisible {
+	display: none;
 }

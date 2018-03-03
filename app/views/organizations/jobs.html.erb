@@ -1,10 +1,15 @@
 <div class='col-md-12'>
 <h2><%= @org.name %>'s Open Jobs</h2>
 </div>
-<ul>
+<div class="col-sm-12">
+<ul id="orgJobsList">
   <% @jobs.each.with_index(1) do |job,i| %>
   <li>
-    <%="#{i}."%><%= link_to job.title, organization_job_path(@org,job) %><br>
+    <%="#{i}."%><%= link_to job.title, organization_job_path(@org,job) %> |
+		<%= link_to "Delete", organization_job_path(@org,job), class: "deleteJob"%>
 </li>
    <%end%>
 </ul>
+</div>
+<div class="col-sm-12"><button class="btn btn-primary showJobForm">Create Job</button></div>
+<%= render partial: 'jobs/form' %>
