@@ -38,30 +38,9 @@ $(function(){
 		$('#newJobBtn').on('click', function(e){
 			e.preventDefault();
 			window.location.replace($(this).attr('href'));
-
 		})
 
-		$('#new_job').on('submit', function(e){
-	  	e.preventDefault();
-			let action = $(this).attr('action');
-			let title = $('#job_title').val();
-			let local = $('#job_location').val();
-			let des = $('#job_description').val();
-			let level = $('#job_level').val();
-			let salary = $('#job_salary').val();
-			let jobAttrs = new Job(title,local,salary,level,des);
-			let org_id = action.split('/')[2];
-			$('.newJobOverlay').addClass('notVisible');
-			$.post(`${action}`, {job: jobAttrs})
-				.done((newJobRes) => {
-					let newJob = new Job(newJobRes.title,newJobRes.local, newJobRes.salary, newJobRes.level, newJobRes.des, newJobRes.created_at);
-					let daysOld = newJob.daysOld();
-					let url = `/organizations/${org_id}/jobs`
-					let jobNum = $('#orgJobsList').children.length;
-					let orgJobPath = `${url}/${newJobRes.id}`
-					$('#orgJobsList').append(`<li><a href="${orgJobPath}" |` + `<a href="${orgJobPath}" id="deleteJob">Delete</a>`)
-				})
-		})
+
 /*************JOB SHOW PAGE***************/
 		$('.openJob').on('click', function(e){
 			e.preventDefault();
@@ -75,52 +54,55 @@ $(function(){
 
 		$('.jobShow').on('click', function(e){
 			e.preventDefault();
-			 let url = $(this).attr('href');
-			 $.get(url)
-			 	.done((res) => {
+			let url = $(this).attr('href');
+			$.get(url)
+				.done((res) => {
 					let job = new Job(res.job.title,res.job.location,res.job.salary, res.job.level, res.job.description);
 					makeDisplayTemplate(res.job, '#jobsShowPage', '.jobs_applied')
 				})
 		});
 
-/*****************DELETE****************/
-		$('.deleteJob').on('click', function(e){
-			let linkTag = $(this);
-			$.ajax({
-				url: $(this).attr('href'),
-				type: "DELETE"
-			})
-			.done(function(res){
-				$(linkTag).parent().remove();
-			})
+		$('.showJobForm').on('click', function(e){
 			e.preventDefault();
+			$('.newJobOverlay').removeClass('notVisible');
 		})
 
 
-
-$('.showJobForm').on('click', function(e){
-	e.preventDefault();
-	$('.newJobOverlay').removeClass('notVisible');
-})
-
-
-
-
-$('#close').on('click', function(e){
-	$('.newJobOverlay').addClass('notVisible');
-})
-
-
-
-
-
-
-
-
+		$('#close').on('click', function(e){
+			$('.newJobOverlay').addClass('notVisible');
+		})
+		readyNewJobForm();
+		addDeleteJobListener();
  });
 
 
- /*****************DELETE JOB***********************/
+ /***************READY FORM**************/
+ function readyNewJobForm(){
+ 	$('#new_job').on('submit', function(e){
+ 		e.preventDefault();
+ 		let action = $(this).attr('action');
+ 		let title = $('#job_title').val();
+ 		let local = $('#job_location').val();
+ 		let des = $('#job_description').val();
+ 		let level = $('#job_level').val();
+ 		let salary = $('#job_salary').val();
+ 		let jobAttrs = new Job(title,local,salary,level,des);
+ 		let org_id = action.split('/')[2];
+ 		$('.newJobOverlay').addClass('notVisible');
+ 		$.post(`${action}`, {job: jobAttrs, cache: false})
+ 			.done((newJobRes) => {
+ 				let newJob = new Job(newJobRes.title,newJobRes.local, newJobRes.salary, newJobRes.level, newJobRes.des, newJobRes.created_at);
+ 				let daysOld = newJob.daysOld();
+ 				let url = `/organizations/${org_id}/jobs`
+ 				let orgJobPath = `${url}/${newJobRes.id}`
+ 				$('#orgJobsList').append(`<li><a href="${orgJobPath}">${newJobRes.title}</a> | ` + `<a href="${orgJobPath}" class="deleteJob">Delete</a></li>`)
+ 				$('#new_job')[0].reset();
+				readyNewJobForm();
+ 			})
+ 	})
+
+ }
+
 
 
 /*************JOB Class***************/
@@ -144,6 +126,21 @@ class Job {
 	}
 }
 
+/*****************DELETE****************/
+function addDeleteJobListener(){
+ $(document).on('click', '.deleteJob', function(e){
+	 e.preventDefault();
+	 let linkTag = $(this);
+	 $.ajax({
+		 url: $(this).attr('href'),
+		 type: "DELETE",
+		 cache: false
+	 })
+	 .done(function(res){
+		 $(linkTag).parent().remove();
+	 })
+ })
+}
 
 
 /*************JOBS INDEX***************/
@@ -152,14 +149,15 @@ function listJobs(){
 		.done((jobs) => {
 			jobs.forEach(function(job){
 					makeDisplayTemplate(job, '#jobsShowPage', '.output');
-			});
 		});
+	});
 }
+
+
 /*************HANDLEBARS TEMPLATE-OUTPUT***************/
 function makeDisplayTemplate(data, template, output) {
   let displayTemplate =  $(template).html();
   let finalTemplate = Handlebars.compile(displayTemplate);
   let html = finalTemplate(data);
 	$(output).html(html);
-
 }

@@ -5,8 +5,9 @@
 <ul id="orgJobsList">
   <% @jobs.each.with_index(1) do |job,i| %>
   <li>
-    <%="#{i}."%><%= link_to job.title, organization_job_path(@org,job) %> |
+    <%= link_to job.title, organization_job_path(@org,job) %> |
 		<%= link_to "Delete", organization_job_path(@org,job), class: "deleteJob"%>
+		<hr>
 </li>
    <%end%>
 </ul>
