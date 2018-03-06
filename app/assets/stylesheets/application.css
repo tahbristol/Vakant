@@ -24,6 +24,10 @@ html, body {
 	width:100%;
 }
 
+.row.main {
+	border-radius: 8px;
+}
+
 .notVisible {
 	display: none;
 }
@@ -41,6 +45,9 @@ html, body {
 .nav-link {
 	float:left;
 	margin: auto 10px;
+}
+.nav {
+	margin-top:10px;
 }
 
 .googleBtn {
@@ -91,6 +98,7 @@ header.masthead {
   background-size: cover;
   padding-top: 8rem;
   padding-bottom: 8rem;
+	border-radius: 8px;
 }
 
 header.masthead .overlay {
@@ -101,10 +109,18 @@ header.masthead .overlay {
   top: 0;
   left: 0;
   opacity: 0.3;
+	border-radius: 8px;
 }
+
+div.overlay {
+
+}
+
+
 
 header.masthead h1 {
   font-size: 2rem;
+	border-radius: 8px;
 }
 
 @media (min-width: 768px) {
