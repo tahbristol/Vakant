@@ -1,3 +1,52 @@
 // Place all the styles related to the Jobs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#new_job {
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 100px;
+	width:300px;
+
+	.form-group {
+		padding: 20px;
+		border-radius: 8px;
+	}
+	z-index: 4000;
+
+	input {
+		width: 95%;
+		margin:auto;
+	}
+
+}
+
+#new_job > div > input:nth-child(17) {
+	margin-bottom: 15px;
+}
+
+
+div.newJobModal {
+	border-radius: 8px;
+
+	z-index: 4000;
+	background-color: pink;
+	border: 1px solid black;
+	width: 400px;
+	margin-top:7%;
+	margin-left:auto;
+	margin-right:auto;
+
+
+
+
+}
+.newJobOverlay {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(242,241,241, 0.7);
+	position: fixed;
+	top: 0px;
+	left: 0px;
+}

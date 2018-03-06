@@ -9,8 +9,8 @@ class OrganizationsController < ApplicationController
 
  def jobs
   @org = current_organization
-  # binding.pry
-  @jobs = current_organization.jobs
+	@jobs = current_organization.jobs
+	@job = Job.new
  end
 
  def edit
@@ -20,7 +20,6 @@ class OrganizationsController < ApplicationController
  def update
   @org = Organization.find(params[:id])
   @org.update(org_params)
-	binding.pry
   redirect_to organization_path(@org)
 	#this redirects to root without image. Need to fix.
  end

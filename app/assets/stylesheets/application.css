@@ -13,6 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
+html, body {
+	margin:0px;
+	height: 100%;
+}
+
 .row {
   text-align: center;
 	width:100%;
@@ -23,7 +29,6 @@
   height: 500px;
   margin: 0 auto;
   background-image: url('manhattanScape.jpg');
-
 }
 
 .nav {
@@ -39,6 +44,11 @@
   background-color: #DF4A32;
   color: white;
 }
+
+
+ul {
+	 padding:0px;
+ }
 
 li {
   list-style: none;

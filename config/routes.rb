@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :job_applications, only: [:new, :create, :show, :edit, :update]
   resources :users, only: [:new, :index, :show, :edit, :update]
   resources :organizations, only: [:index, :show, :edit, :update]
-  resources :jobs, only: [:index, :show]
+  resources :jobs
   resources :profiles
 
 
@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index]
   end
   resources :organizations do
-    resources :jobs, only: [:index, :edit, :update, :show, :new, :create, :delete]
+    resources :jobs
   end
   post 'jobs/:id/apply', to: 'jobs#apply'
 

@@ -1,6 +1,8 @@
+<div class="col-sm-12">
+	<h3>Edit Your Org</h3>
 <%= form_for @org do |f| %>
-<%= f.label :email %>
-<%= f.text_field :email %><br>
+	<%= f.label :email %>
+	<%= f.text_field :email %><br>
   <%= f.label :name %>
   <%= f.text_field :name %><br>
 
@@ -8,6 +10,5 @@
   <%= f.text_field :location %><br>
 
   <%= f.submit %>
-
-
 <%end%>
+</div>

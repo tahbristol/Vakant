@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 
 
   def new
-			binding.pry
+			render layout: false
   end
 
   def create

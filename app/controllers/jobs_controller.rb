@@ -1,10 +1,10 @@
 class JobsController < ApplicationController
  def index
-  @jobs = if params[:organization_id]
-           Job.find(params(:organization_id)).jobs
-          else
-           Job.all
-         end
+  if params[:organization_id]
+    @jobs =  Job.find(params(:organization_id)).jobs
+  else
+    @jobs = Job.all
+  end
  end
 
  def new
@@ -14,15 +14,18 @@ class JobsController < ApplicationController
  end
 
  def create
+  # binding.pry
   @org = Organization.find(params[:organization_id])
   @job = @org.jobs.build(job_params)
   @job.save
-  redirect_to organization_jobs_path(@org)
+  render json: @job
  end
 
  def show
   @job = Job.find(params[:id])
   @org = @job.organization
+  render json: { job: @job,
+                 org: @org }
  end
 
  def edit
@@ -33,6 +36,13 @@ class JobsController < ApplicationController
   @job = Job.find(params[:id])
   @job.update(job_params)
   redirect_to job_path(@job)
+ end
+
+ def destroy
+	 @org = Organization.find(params[:organization_id])
+	 @job = Job.find(params[:id])
+	 @job.destroy
+	 render json: @org
  end
 
  def apply

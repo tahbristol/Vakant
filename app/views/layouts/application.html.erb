@@ -7,10 +7,9 @@
     <meta name="author" content="">
     <title>Vakant</title>
     <%= csrf_meta_tags %>
-
-
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+<<<<<<< HEAD
 
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
@@ -42,6 +41,45 @@
 	
 
 
+=======
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+		 integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+		 crossorigin="anonymous" />
+  </head>
+
+  <body>
+    <header>
+      <div class="container">
+        <div class="row">
+      	<%= render 'layouts/navigation' %>
+    		</div>
+    	</div>
+    </header>
+    <%= render partial: 'layouts/messages' %>
+    <div class="container">
+      <div class="row">
+        <% if !current_user.present? && !current_organization.present? %>
+        	<div class="jumbotron">
+          	<h1>Vakant</h1>
+          	<h3>Get a job or get better</h3>
+        	</div><br>
+      	<%end%>
+      </div>
+      <div class="row main">
+      	<%= yield %>
+    	</div>
+    </div>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<div id="output">
+					</div>
+				</div>
+			</div>
+		</div>
+>>>>>>> ajax
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+		<%= render partial: '../views/jobs/indexTemplate' %>
   </body>
 </html>
