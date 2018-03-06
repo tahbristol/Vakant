@@ -1,14 +1,19 @@
 
-<div class="col-sm-6">
-<%= link_to "Job Seekers", new_user_registration_path, class: "btn btn-primary" %><br><br>
-</div>
-
-
-<div class="col-sm-6">
-<%= link_to "Employers", new_organization_registration_path, class: "btn btn-secondary" %>
-</div>
-
-
-<div class="col-sm-12">
-<%= link_to "View Jobs", jobs_path, class: "btn btn-secondary" %>
-</div>
+<header class="masthead text-white text-center">
+	<div class="overlay"></div>
+	<div class="container">
+		<div class="row">
+			<% if !current_user.present? && !current_organization.present? %>
+			 <div class="col-xl-9 mx-auto">
+				<h1 class="mb-5">Vakant</h1>
+				<h3>Grow Through Your Experiences.</h3>
+			 </div>
+			<%end%>
+			<div class="row">
+				<div class="col-12">
+					<%= link_to "Sign up!", new_user_registration_path, id: "toSignUp", class: "btn  btn-primary" %>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>

@@ -30,8 +30,20 @@ $(function(){
   var inputs = document.getElementsByTagName('input');
     for (var i = 0; i<inputs.length; i++) {
       if (inputs[i].parentElement.className != "button_to") {
-        inputs[i].addClass('form-control');
+      //  inputs[i].addClass('form-control');
       }
     }
+
+/*
+	$('a#toSignUp').on('click', function(e){
+		e.preventDefault();
+		let url = $(this).attr('href');
+		console.log(url)
+		$.get(url)
+			.done((signupPage) => {
+			$('.main-content').html(signupPage);
+			})
+	})
+	*/
 
  });
