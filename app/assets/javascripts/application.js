@@ -103,7 +103,7 @@ $(function(){
  				let daysOld = newJob.daysOld();
  				let url = `/organizations/${org_id}/jobs`
  				let orgJobPath = `${url}/${newJobRes.id}`
- 				$('#orgJobsList').append(`<li><a class="openJob" href="${orgJobPath}">${newJobRes.title}</a> | ` + `<a href="${orgJobPath}" class="deleteJob">Delete</a></li>` + "\n<hr>")
+ 				$('#orgJobsList').append(`<li><a class="openJob" href="${orgJobPath}">${newJobRes.title}</a> | ` + `<a href="${orgJobPath}" class="deleteJob">Delete</a>\n<hr></li>`)
  				$('#new_job')[0].reset();
 
  			})
