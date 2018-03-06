@@ -47,8 +47,9 @@ $(function(){
 			 let url = $(this).attr('href');
 			$.get(url)
 				.done((data) => {
+					console.log(data);
 					makeDisplayTemplate(data.job,'#jobsShowPage','#listedJobs' );
-				})
+				})///////make this a modal to view the job show page
 		});
 
 
@@ -89,15 +90,22 @@ $(function(){
  		let jobAttrs = new Job(title,local,salary,level,des);
  		let org_id = action.split('/')[2];
  		$('.newJobOverlay').addClass('notVisible');
- 		$.post(`${action}`, {job: jobAttrs, cache: false})
+ 		$.post(`${action}`,
+			{job: {
+						title: title,
+						location: local,
+						salary: salary,
+						level: level,
+						description: des
+			}})
  			.done((newJobRes) => {
  				let newJob = new Job(newJobRes.title,newJobRes.local, newJobRes.salary, newJobRes.level, newJobRes.des, newJobRes.created_at);
  				let daysOld = newJob.daysOld();
  				let url = `/organizations/${org_id}/jobs`
  				let orgJobPath = `${url}/${newJobRes.id}`
- 				$('#orgJobsList').append(`<li><a href="${orgJobPath}">${newJobRes.title}</a> | ` + `<a href="${orgJobPath}" class="deleteJob">Delete</a></li>`)
+ 				$('#orgJobsList').append(`<li><a class="openJob" href="${orgJobPath}">${newJobRes.title}</a> | ` + `<a href="${orgJobPath}" class="deleteJob">Delete</a></li>`)
  				$('#new_job')[0].reset();
-				readyNewJobForm();
+			
  			})
  	})
 
