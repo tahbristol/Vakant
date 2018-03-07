@@ -50,11 +50,14 @@ class JobsController < ApplicationController
 	end
 
 	def apply
-		if current_user
+		if current_user && !has_applied?(current_user, params[:id].to_i)
 			@job = Job.find(params[:id])
 			current_user.jobs_applied << @job
 			current_user.save
 			redirect_to current_user
+		elsif current_user && has_applied?(current_user, params[:id].to_i)
+			flash[:alert] = "You have already applied to this position."
+			redirect_to jobs_path
 		else
 			session[:viewed_job] = params[:id]
 			redirect_to new_user_session_path
@@ -63,6 +66,10 @@ class JobsController < ApplicationController
 
 	private
 
+	def has_applied?(user, job)
+		user.jobs_applied_ids.include?(job.to_i)
+	end
+	
 	def job_params
 		params.require(:job).permit(:title, :location, :description, :level, :salary, :organization_id)
 	end

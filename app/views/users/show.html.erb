@@ -22,11 +22,15 @@
 	
 	<div class="jobs_applied"><br>
 		<h2>Jobs you've applied to</h2><br>
-		<% @jobs_applied.each.with_index(1) do |job, i| %>
-			<%= link_to job.title, job_path(job), class: "jobShow" %> @
-			<%= job.organization.name %><br>
-			 You applied _ days ago<br>
-			<hr id="appliedJobsList">
+		<% if @jobs_applied.size >= 1 %>
+			<% @jobs_applied.each.with_index(1) do |job, i| %>
+				<%= link_to job.title, job_path(job), class: "jobShow" %> @
+				<%= job.organization.name %><br>
+				 You applied _ days ago<br>
+				<hr id="appliedJobsList">
+			<%end%>
+		<%else%>
+			<h5>You have not applied to any jobs</h5>
 		<%end%>
 	</div>
 
