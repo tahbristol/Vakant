@@ -2,12 +2,11 @@
 	
 	<div class="image-place" style="">
 		<% if @job_application_profile.present? %>
-			<h4>Photo</h4>
 			<%= image_tag @profile.user_photo.url(:medium) %>
 		<%end%>
-	</div>
+	</div><br>
 	
-	<h2>User Job Application</h2>
+	<h5>Your Application</h5>
 	<% if current_user %>
 		<% if @user.job_application.present? && @user.job_application.profile.present? %>
 			<%= render partial: 'users/profile_present', locals: {profile: @profile} %>
@@ -21,7 +20,7 @@
 <div class="col-md-4">
 	
 	<div class="jobs_applied"><br>
-		<h2>Jobs you've applied to</h2><br>
+		<h2>Your Jobs</h2><br>
 		<% if @jobs_applied.size >= 1 %>
 			<% @jobs_applied.each.with_index(1) do |job, i| %>
 				<%= link_to job.title, job_path(job), class: "jobShow" %> @
