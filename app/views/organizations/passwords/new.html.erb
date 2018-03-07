@@ -1,3 +1,5 @@
+
+<div class="col-md-12 signUpForm"
 <h2>Forgot your password?</h2>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
@@ -12,5 +14,5 @@
     <%= f.submit "Send me reset password instructions" %>
   </div>
 <% end %>
-
+</div>
 <%= render "organizations/shared/links" %>

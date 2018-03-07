@@ -14,4 +14,5 @@ TODO
 	On user show page in jobs applied list. After clicking on a job and seeing the 
 	job info, the 'jobs applied to' link should be ajax.
 	
-	Add applicants for each job.
+	When viewing applicants for each job, only display job application.
+	Fix organization job edit, modal is currently noVisible
