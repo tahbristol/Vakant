@@ -19,12 +19,17 @@ html, body {
 	height: 100%;
 }
 
+form {
+	width: 300px;
+	margin: auto;
+}
+
 .row {
-  text-align: center;
+	text-align: center;
 	width:100%;
 }
 
-div {
+div, div.col-md-12 {
 	text-align: center;
 }
 
