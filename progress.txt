@@ -8,3 +8,9 @@ oauth                                                                           
 nested resource                                                                     DONE
 forms should display validation errors                                              DONE
 DRY application, Skinny controllers, Fat methods
+
+
+TODO
+	On user show page in jobs applied list. After clicking on a job and seeing the 
+	job info, the 'jobs applied to' link should be ajax.
+	

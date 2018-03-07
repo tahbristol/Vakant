@@ -42,7 +42,7 @@ $(function(){
 
 
 /*************JOB SHOW PAGE***************/
-		$('.openJob').on('click', function(e){
+		/*$('.openJob').on('click', function(e){
 			e.preventDefault();
 			 let url = $(this).attr('href');
 			$.get(url)
@@ -50,7 +50,7 @@ $(function(){
 					console.log(data);
 					makeDisplayTemplate(data.job,'#jobsShowPage','#listedJobs' );
 				})///////make this a modal to view the job show page
-		});
+		});*/
 
 
 		$('.jobShow').on('click', function(e){
