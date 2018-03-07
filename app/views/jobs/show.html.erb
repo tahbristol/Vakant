@@ -1,22 +1,30 @@
-<div class="col-md-12">
-  <h2>Info for <%= @job.title %></h2>
+<div class="row">
+	<div class="col-md-12">
+	<h3><%= @job.title %></h3>
+	<h5>@</h5>
+	</div>
 </div>
 
-<div class="col-md-12">
-  <ul>
-    <li><%= @job.title  %> </li>
-    <li><%= @job.location  %> </li>
-    <li><%=@job.description  %> </li>
-    <li><%= @job.level  %> </li>
-    <li><%= @job.salary %> </li>
-  </ul>
+<div class="row">
+	<div class="col-md-4"></div>
+	<div class="col-md-4">
+		<ul>
+			<li><%= @job.organization.name %><br><h5>In</h5></li>
+			<li><%= @job.location  %> </li>
+			<li><strong>Description</strong>:<br><%=@job.description  %></li>
+			<li><strong>Experience Level</strong>:<br><%= @job.level  %> </li>
+			<li><%= @job.salary %> </li>
+		</ul>
+	</div>
+	<div class="col-md-4"></div>
 </div>
 
+<div class="row">
   <% if current_user.present? %>
     <div class="col-md-12">
-      <%= link_to "Learn about the Org", organization_path(@org) %><br>
-      <%= link_to "Back", :back %> | <%= link_to "My Profile", user_path(current_user) %>
-      <%= button_to "Apply", action: "apply" %>
+      <small>Learn about <%= link_to "#{@job.organization.name}", organization_path(@org) %></small><br>
+      <%= link_to "Back", :back %> | <%= link_to "My Profile", user_path(current_user) %><br><br>
+      <%= button_to "Apply", class: "btn btn-primary", action: "apply" %>
     </div>
   <%elsif !current_user.present? && !current_organization.present?%>
     <div class="col-md-12">
@@ -28,3 +36,4 @@
       <%= link_to "View Applicants", job_users_path(@job)  %>
     </div>
    <%end%>
+</div>

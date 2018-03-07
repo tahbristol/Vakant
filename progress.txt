@@ -14,3 +14,4 @@ TODO
 	On user show page in jobs applied list. After clicking on a job and seeing the 
 	job info, the 'jobs applied to' link should be ajax.
 	
+	Add applicants for each job.

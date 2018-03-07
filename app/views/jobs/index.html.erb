@@ -2,14 +2,15 @@
 
 
 <div class="col-md-12">
-	<h3>Open Jobs</h3>
+	<h3>Open Jobs</h3><br>
   <div id="listedJobs">
     <% @jobs.each.with_index(1) do |job,i| %>
-      <%= link_to "#{i}. #{job.title}", job_path(job), class: "openJob" %><br>
+      <%= link_to "#{job.title}", job_path(job), class: "openJob" %><br>
       <%= job.location %><br>
       <%= truncate job.description %><br>
       <%= job.level %><br>
       <%= job.salary %><br>
+			<hr class="jobsList">
     <%end%>
   </div>
 </div>

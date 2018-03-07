@@ -58,6 +58,7 @@ $(function(){
 			let url = $(this).attr('href');
 			$.get(url)
 				.done((res) => {
+					console.log(res)
 					let job = new Job(res.job.title,res.job.location,res.job.salary, res.job.level, res.job.description);
 					makeDisplayTemplate(res.job, '#jobsShowPage', '.jobs_applied')
 				})

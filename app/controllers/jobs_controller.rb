@@ -26,8 +26,9 @@ class JobsController < ApplicationController
 		@job = Job.find(params[:id])
 		@org = @job.organization
 		respond_to do |format|
-			format.html 
+			
 			format.json { render json: {job: @job, org: @org} }
+			format.html
 		end
 	end
 
