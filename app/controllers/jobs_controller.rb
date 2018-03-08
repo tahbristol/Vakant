@@ -1,6 +1,7 @@
 class JobsController < ApplicationController
 	
 	def index
+		binding.pry
 		if params[:organization_id]
 			@jobs =  Job.find(params(:organization_id)).jobs
 		else

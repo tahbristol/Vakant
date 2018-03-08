@@ -6,6 +6,7 @@
 <% @users.each.with_index(1) do |user,i| %>
   <p><%= "#{i}. "%><%= link_to user.job_application.profile.full_name, user %> | <%= user.email %></p>
 	<%end%>
+	 <%= link_to "Back", :back %>
 	<%else%>
 	<p>There are no applications for this postiion.</p>
 		<%= link_to "Back", organization_jobs_path(current_organization) %>

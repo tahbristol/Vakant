@@ -68,7 +68,11 @@ $(function(){
 			e.preventDefault();
 			$('.newJobOverlay').removeClass('notVisible');
 		})
-
+		
+		$('#editJob').on('click', function(e){
+			e.preventDefault();
+			$('.newJobOverlay').removeClass('notVisible');
+		})
 
 		$('#close').on('click', function(e){
 			$('.newJobOverlay').addClass('notVisible');

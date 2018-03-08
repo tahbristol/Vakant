@@ -32,8 +32,12 @@
     </div>
   <%else%>
     <div class="col-md-12">
-      <%= link_to "Edit Position", edit_organization_job_path(@org,@job) %>
-      <%= link_to "View Applicants", job_users_path(@job)  %>
+			<%= link_to "View Applicants", job_users_path(@job)  %><br>
+      <%= link_to "Edit Position", edit_organization_job_path(@org,@job), id: "editJob"%><br>
+			<%= link_to "Back", organization_jobs_path(@job) %>
+      
+			
+			<%= render partial: 'form' %>
     </div>
    <%end%>
 </div>
