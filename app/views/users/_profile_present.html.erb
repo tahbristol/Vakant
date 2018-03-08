@@ -1,4 +1,7 @@
 <%= profile.full_name %><br>
 <%= profile.phone %><br>
-<%= current_user.email %><br>
-<%= link_to "Edit Application", edit_job_application_path%><br>
+<%= user.email %><br><br>
+<% if current_user === @user %>
+	<%= link_to "Edit Application", edit_job_application_path%><br><br>
+<%end%>
+<%= link_to "Back", :back %>
