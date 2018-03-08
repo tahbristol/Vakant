@@ -2,7 +2,11 @@
 <h3>Applicants for Job: <%= @job.title %></h3><br>
 </div>
 <div class="col-sm-12">
+	<% if @users.size >= 1 %>
 <% @users.each.with_index(1) do |user,i| %>
   <p><%= "#{i}. "%><%= link_to user.job_application.profile.full_name, user %> | <%= user.email %></p>
+	<%end%>
+	<%else%>
+	<p>There are no applications for this postiion.</p>
   <%end%>
 </div>
