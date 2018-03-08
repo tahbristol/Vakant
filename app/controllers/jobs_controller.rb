@@ -33,12 +33,10 @@ class JobsController < ApplicationController
 	end
 
 	def edit
-		binding.pry
 		@job = Job.find(params[:id])
 	end
 
 	def update
-		binding.pry
 		@job = Job.find(params[:id])
 		@job.update(job_params)
 		redirect_to job_path(@job)
