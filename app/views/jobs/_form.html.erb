@@ -3,31 +3,26 @@
 	<div class="col-sm-12 newJobModal">
 		<h3>New Job Form</h3>
 
-	<%= form_for [@org, @job] do |f| %>
-	  <div class="form-group">
-	  <%= f.label :title %>
-	  <%= f.text_field :title %><br>
-
-	  <%= f.label :location %>
-	  <%= f.text_field :location %><br>
-
-	  <%= f.label :description %><br>
-	  <%= f.text_area :description %><br>
-
-	  <%= f.label :level %>
-	  <%= f.text_field :level %><br>
-
-	  <%= f.label :salary %>
-	  <%= f.text_field :salary %><br>
-
-
-	  <%= f.submit %>
-	</div>
-	  <%end%>
-<p id="close">X</p>
-	</div>
-
-
-
-
+		<%= form_for [@org, @job] do |f| %>
+			<div class="form-group">
+				<%= f.label :title %>
+				<%= f.text_field :title %><br>
+				
+				<%= f.label :location %>
+				<%= f.text_field :location %><br>
+				
+				<%= f.label :description %><br>
+				<%= f.text_area :description %><br>
+				
+				<%= f.label :level %>
+				<%= f.text_field :level %><br>
+				
+				<%= f.label :salary %>
+				<%= f.text_field :salary %><br>
+				
+				<%= f.submit %>
+			</div>
+		<%end%>
+		<p id="close">X</p></div>
+		
 </div>

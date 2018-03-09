@@ -20,24 +20,23 @@
 </div>
 
 <div class="row">
-  <% if current_user.present? %>
-    <div class="col-md-12">
-      <small>Learn about <%= link_to "#{@job.organization.name}", organization_path(@org) %></small><br>
-      <%= link_to "Back", :back %> | <%= link_to "My Profile", user_path(current_user) %><br><br>
-      <%= button_to "Apply", class: "btn btn-primary", action: "apply" %>
-    </div>
-  <%elsif !current_user.present? && !current_organization.present?%>
-    <div class="col-md-12">
-      <%= link_to "Back", :back %> | <%= button_to "Apply", action: "apply" %>
-    </div>
-  <%else%>
-    <div class="col-md-12">
-			<%= link_to "View Applicants", job_users_path(@job)  %><br>
-      <%= link_to "Edit Position", edit_organization_job_path(@org,@job), id: "editJob"%><br>
-			<%= link_to "Back", organization_jobs_path(@job) %>
-      
-			
-			<%= render partial: 'form' %>
-    </div>
-   <%end%>
+	<% if current_user.present? %>
+		<div class="col-md-12">
+			<small>Learn about <%= link_to "#{@job.organization.name}", organization_path(@org) %></small><br>
+			<%= link_to "Back", :back %> | <%= link_to "My Profile", user_path(current_user) %><br><br>
+			<%= button_to "Apply", class: "btn btn-primary", action: "apply" %>
+		</div>
+	<%elsif !current_user.present? && !current_organization.present?%>
+		<div class="col-md-12">
+			<%= link_to "Back", :back %> | <%= button_to "Apply", action: "apply" %>
+		</div>
+	<%else%>
+	<div class="col-md-12">
+		<%= link_to "View Applicants", job_users_path(@job)  %><br>
+		<%= link_to "Edit Position", edit_organization_job_path(@org,@job), id: "editJob"%><br>
+		<%= link_to "Back", organization_jobs_path(@job) %>
+		
+		<%= render partial: 'form' %>
+	</div> 
+	<%end%>
 </div>
