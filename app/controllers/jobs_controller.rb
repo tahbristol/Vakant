@@ -1,7 +1,6 @@
 class JobsController < ApplicationController
 	
 	def index
-		
 		if params[:organization_id]
 			@jobs =  Job.find(params(:organization_id)).jobs
 		else
@@ -10,24 +9,24 @@ class JobsController < ApplicationController
 	end
 
 	def new
-		# binding.pry
 		@org = Organization.find(params[:organization_id])
 		@job = @org.jobs.build
 	end
 
 	def create
-		# binding.pry
 		@org = Organization.find(params[:organization_id])
 		@job = @org.jobs.build(job_params)
 		@job.save
-		render json: @job
+		respond_to do |format|
+			format.json { render json: {job: @job, org: @org}}
+			format.html
+		end
 	end
 
 	def show
 		@job = Job.find(params[:id])
 		@org = @job.organization
 		respond_to do |format|
-			
 			format.json { render json: {job: @job, org: @org} }
 			format.html
 		end

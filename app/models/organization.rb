@@ -9,7 +9,7 @@ class Organization < ApplicationRecord
 
 
 
-  def org_profile
-    {:name => self.name, :location => self.location, :email => self.email}.compact
-  end
+	def org_profile
+		{:name => self.name, :location => self.location, :email => self.email}.compact
+	end
 end
