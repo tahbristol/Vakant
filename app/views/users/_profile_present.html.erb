@@ -3,5 +3,6 @@
 <%= user.email %><br><br>
 <% if current_user === @user %>
 	<%= link_to "Edit Application", edit_job_application_path%><br><br>
+	<%else%>
+	<%= link_to "Back", :back %>
 <%end%>
-<%= link_to "Back", :back %>

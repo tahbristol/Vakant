@@ -6,17 +6,13 @@ class JobApplicationsController < ApplicationController
   end
 
   def create
-
-    @user = current_user
-    if @user.job_application.present?
-     @job_application = @user.job_application.update(job_application_params)
-    else
+     @user = current_user
      @job_application = JobApplication.create(job_application_params)
+		 @user.job_application = @job_application
+		 @user.save
+		 redirect_to user_path(@user)
     end
 
-    @user.save
-    redirect_to user_path(current_user)
-  end
 
   def show
     @job_application = JobApplication.find(params[:id])

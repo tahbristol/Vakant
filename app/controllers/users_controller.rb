@@ -24,9 +24,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @job_application_profile = Profile.new
+    #@job_application_profile = Profile.new
     @profile = @user.job_application.profile unless @user.job_application.nil?
     @jobs_applied = @user.jobs_applied
+	
   end
 
   def edit
