@@ -92,7 +92,6 @@ function readyNewJobForm(){
 			}})
 			.done((newJobRes) => {
 				let newJob = new Job(newJobRes.title,newJobRes.local, newJobRes.salary, newJobRes.level, newJobRes.des, newJobRes.created_at);
-				let daysOld = newJob.daysOld();
 				let url = `/organizations/${org_id}/jobs`
 				let orgJobPath = `${url}/${newJobRes.id}`
 				$('#orgJobsList').append(`<li><a class="openJob" href="${orgJobPath}">${newJobRes.title}</a> | ` + `<a href="${orgJobPath}" class="deleteJob">Delete</a>\n<hr></li>`)
