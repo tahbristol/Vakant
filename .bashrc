@@ -1,0 +1,1 @@
+export PATH="/home/tyler/node_modules/yarn/bin:$PATH"
