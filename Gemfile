@@ -32,7 +32,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'bootstrap-sass', '~> 3.3.6'
-
+gem 'webpacker', git: 'https://github.com/rails/webpacker.git'
 gem 'jquery-rails'
 gem 'popper_js', '~> 1.12.3'
 
