@@ -35,7 +35,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootstrap-sass', '~> 3.4.1'
 
 gem 'jquery-rails'
-gem 'popper_js', '~> 1.12.3'
+gem 'popper_js', '~> 1.14.5'
 
 #gem 'omniauth'
 #gem 'omniauth-twitter'

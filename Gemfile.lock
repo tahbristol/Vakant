@@ -154,7 +154,7 @@ GEM
       mimemagic (~> 0.3.0)
     pg (1.0.0)
     pg (1.0.0-x64-mingw32)
-    popper_js (1.12.9)
+    popper_js (1.14.5)
     pry (0.11.3)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -290,7 +290,7 @@ DEPENDENCIES
   omniauth-google-oauth2
   paperclip (~> 5.2.1)
   pg
-  popper_js (~> 1.12.3)
+  popper_js (~> 1.14.5)
   pry
   puma (~> 3.7)
   rails (~> 5.1.4)
