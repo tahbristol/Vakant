@@ -32,7 +32,7 @@ gem 'jbuilder', '~> 2.5'
  gem 'devise'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap-sass', '~> 3.4.1'
 
 gem 'jquery-rails'
 gem 'popper_js', '~> 1.12.3'
