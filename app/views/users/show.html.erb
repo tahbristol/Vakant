@@ -34,7 +34,7 @@
 			<% @jobs_applied.each.with_index(1) do |job, i| %>
 				<%= link_to job.title, job_path(job), class: "jobShow" %> @
 				<%= job.organization.name %><br>
-				 You applied _ days ago<br>
+				 You applied <%= time_ago_in_words(job.created_at) %> ago<br>
 				<hr id="appliedJobsList">
 			<%end%>
 		<%else%>
